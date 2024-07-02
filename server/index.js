@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import "dotenv/config";
 import connectDB from "./db/db.js";
+import authRouter from "./routes/authRoute.js";
 
 const app = express();
 
@@ -16,6 +17,8 @@ app.use(
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json({ limit: "50mb" }));
+
+app.use("/api/auth", authRouter);
 
 app.get("/", (req, res) => {
   res.send("OK...my message");
