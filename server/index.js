@@ -21,6 +21,7 @@ app.use(express.json({ limit: "50mb" }));
 
 app.use("/api/auth", authRouter);
 app.use("/api/auth", userRouter);
+
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
   const message = err.message || "Internal Server Error";
