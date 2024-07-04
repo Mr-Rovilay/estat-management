@@ -9,9 +9,6 @@
     "build": "npm install && npm install",
     "clean": "rm -rf build && mkdir build"
   },
-  "engines": {
-    "node": ">=20 <18"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
