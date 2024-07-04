@@ -8,8 +8,6 @@ import listingRouter from "./routes/listingRoute.js";
 import cookieParser from "cookie-parser";
 
 const app = express();
-
-
 app.use(
   cors({
     origin: "*",
@@ -36,7 +34,7 @@ app.use((err, req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("OK...my message");
+  res.send("OK.my message");
 });
 
 connectDB().then(() => {
