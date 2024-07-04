@@ -6,12 +6,9 @@ import authRouter from "./routes/authRoute.js";
 import userRouter from "./routes/userRoute.js";
 import listingRouter from "./routes/listingRoute.js";
 import cookieParser from "cookie-parser";
-import path from "path";
-const port = process.env.PORT || 5000;
 
 const app = express();
 
-const __dirname = path.resolve();
 
 app.use(
   cors({
@@ -38,18 +35,13 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.use(express.static(path.join(__dirname, "/client/dist")));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
-});
-
 app.get("/", (req, res) => {
   res.send("OK...my message");
 });
 
 connectDB().then(() => {
-  app.listen(port, () => {
-    console.log(`Server listening on port ${port}`);
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}`);
   });
 });
