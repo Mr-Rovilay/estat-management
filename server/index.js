@@ -8,6 +8,7 @@ import userRouter from "./routes/userRoute.js";
 import listingRouter from "./routes/listingRoute.js";
 import cookieParser from "cookie-parser";
 import path from "path";
+const port = process.env.PORT || 5000;
 
 const app = express();
 
@@ -49,8 +50,7 @@ app.get("/", (req, res) => {
 });
 
 connectDB().then(() => {
-  const PORT = process.env.PORT || 5000;
-  app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}`);
+  app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
   });
 });
